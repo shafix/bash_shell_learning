@@ -21,6 +21,15 @@ Example : Here we used ls -a to display the contents of the working directory in
 
 In addition to using each option separately, like ls -a or ls -l, multiple options can be used together, like ls -alt.
 
+## Listing all files in a directory
+``` ls OR ls -a ``` 
+Files started with a dot are hidden, and don't appear when using ls alone.
+
+**-a** - lists all contents, including hidden files and directories
+
+**-l** - lists all contents of a directory in long format
+
+**-t** - order files and directories by the time they were last modified.
 
 ## ls -l listed files components
 Example
@@ -63,31 +72,36 @@ The ```>``` command redirects the standard output to a file.
 
 Example: ``` echo "Hello" > hello.txt ```
 
-### Redirecting content from one file to another:
+## Redirecting content from one file to another:
 ``` cat oceans.txt > continents.txt ```
 Note that ```>``` **overwrites all original content** in continents.txt. 
 
 ```  cat glaciers.txt >> rivers.txt ```
 ```>>``` takes the standard output of the command on the left and **appends (adds)** it to the file on the right. 
 
-### Pipeline
+## Pipeline
 ```|``` is a "pipe". The ```|``` takes the standard output of the command on the left, and pipes it as standard input to the command on the right. You can think of this as "command to command" redirection.
 
 Example:
 ``` cat volcanoes.txt | wc | cat > islands.txt ```
 
+### Find and replace
+``` sed 's/snow/rain/' forests.txt ```
+
+```sed``` stands for "stream editor". It **accepts standard input and modifies it based on an expression**, before displaying it as output data. It is similar to "find and replace".
+
+Let's look at the expression 's/snow/rain/':
+
+-s: stands for "substitution". it is always used when using sed for substitution.
+-snow: the search string, the text to find.
+-rain: the replacement string, the text to add in place.
+
+In this case, sed searches forests.txt for the word "snow" and replaces it with "rain." Importantly, the above command **will only replace the first instance** of "snow" on a line. Use ```-g``` to replace all instances.
+
+
+
 
 # Commands:
-
-### Listing all files in a directory
-``` ls OR ls -a ``` 
-Files started with a dot are hidden, and don't appear when using ls alone.
-
-**-a** - lists all contents, including hidden files and directories
-
-**-l** - lists all contents of a directory in long format
-
-**-t** - order files and directories by the time they were last modified.
 
 ### Print working directory
 ``` pwd ```
@@ -149,3 +163,7 @@ Example:
 ``` grep -i Mount mountains.txt ```
 
 ```grep -i``` enables the command to be case insensitive. Here, grep searches for capital or lowercase strings that match Mount in mountains.txt.
+
+### Grep -R (search directory)
+```grep -R``` searches all files in a directory and outputs filenames and lines containing matched results. -R stands for "recursive". 
+
