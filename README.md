@@ -98,6 +98,37 @@ Let's look at the expression 's/snow/rain/':
 
 In this case, sed searches forests.txt for the word "snow" and replaces it with "rain." Importantly, the above command **will only replace the first instance** of "snow" on a line. Use ```-g``` to replace all instances.
 
+# Environment
+Each time we launch the terminal application, it creates a new session. The session immediately loads settings and preferences that make up the command line environment.
+
+We can configure the environment to support the commands and programs we create. This enables us to customize greetings and command aliases, and create variables to share across commands and programs.
+
+### Bash profile:
+First need to create a bash_profile file:
+``` nano ~/.bash_profile ```
+
+The command ```source ~/.bash_profile ``` activates the changes in ```~/.bash_profile``` for the current session. Instead of closing the terminal and needing to start a new session, source makes the changes available right away in the session we are in.
+
+### Assigning aliases in the .bash_profile file:
+``` alias new_alias="what it does" ```
+
+``` alias ll="ls -la" ```
+
+### Environmental variables:
+Environment variables are variables that can be used across commands and programs and hold information about the environment.
+``` export USER="Jane Doe" ```
+
+1.The line USER="Jane Doe" sets the environment variable USER to a name "Jane Doe". Usually the USER variable is set to the name of the computer's owner.
+2.The line export makes the variable to be available to all child sessions initiated from the session you are in. This is a way to make the variable persist across programs.
+3.At the command line, the command echo $USER returns the value of the variable. Note that $ is always used when returning a variable's value. Here, the command echo $USER returns the name set for the variable.
+
+
+# Using NANO (Similar to VIM)
+``` nano FILENAME.TXT ```
+
+Note: Creates a new file if it does not exist yet
+
+```^O``` saves the file, ```^X``` exits the file
 
 
 
@@ -111,6 +142,9 @@ In this case, sed searches forests.txt for the word "snow" and replaces it with 
 
 ### Change to root directory
 ``` cd / ```
+
+### Change to home directory
+``` cd ~/ ```
 
 ### Go back one step in the filesystem
 ``` cd .. ```
