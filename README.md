@@ -116,11 +116,24 @@ The command ```source ~/.bash_profile ``` activates the changes in ```~/.bash_pr
 
 ### Environmental variables:
 Environment variables are variables that can be used across commands and programs and hold information about the environment.
+
 ``` export USER="Jane Doe" ```
 
 1.The line USER="Jane Doe" sets the environment variable USER to a name "Jane Doe". Usually the USER variable is set to the name of the computer's owner.
+
 2.The line export makes the variable to be available to all child sessions initiated from the session you are in. This is a way to make the variable persist across programs.
+
 3.At the command line, the command echo $USER returns the value of the variable. Note that $ is always used when returning a variable's value. Here, the command echo $USER returns the name set for the variable.
+
+The ```env``` command stands for "environment", and returns a list of the environment variables for the current user. Here, the env command returns a number of variables, including PATH, PWD, PS1, and HOME.
+
+Searching for a variable:
+
+```env | grep PATH```
+
+
+
+
 
 
 # Using NANO (Similar to VIM)
