@@ -129,10 +129,6 @@ Searching for a variable:
 ```env | grep PATH```
 
 
-
-
-
-
 # Using NANO (Similar to VIM)
 ``` nano FILENAME.TXT ```
 
@@ -141,7 +137,62 @@ Note: Creates a new file if it does not exist yet
 ```^O``` saves the file, ```^X``` exits the file
 
 
+# Using NANO (Similar to VIM)
 
+
+
+
+# Scripting
+
+### Example shell script
+```
+#!/bin/bash
+# A sample Bash script, by Ryan
+echo Hello World!
+```
+
+To run it:
+``` ./myscript.sh ```
+
+## Why the ./
+
+You've possibly noticed that when we run a normal command (such as ls) we just type its name but when running the script above I put a **./** in front of it. When you **just type a name on the command line** Bash tries to find it in a series of directories stored in a variable called **$PATH**. 
+
+```
+$ echo $PATH
+/home/ryan/bin : /usr/local/bin : /usr/bin : /bin
+```
+
+The directories are separated by " : "
+
+Bash only looks in those specific directories and doesn't consider sub directories or your current directory. It will look through those directories in order and execute the first instance of the program or script that it finds.
+
+Remember that dot ( . ) is actually a reference to your current directory.
+Assuming this script is in my home directory I could also have run it by using an absolute path.
+
+``` /home/ryan/myscript.sh```
+
+## The Shebang (#!)
+``` #!/bin/bash ```
+
+It is the path to the interpreter (or program) that should be used to run (or interpret) the rest of the lines in the text file. 
+Whilst you could use a relative path for the interpreter, most of the time you are going to want to use an absolute path.
+
+You can also run Bash, passing the script as an argument.
+
+``` bash myscript.sh ```
+
+## Formatting
+As we saw above, formatting for the shebang was important (ie no spaces, must be on first line). There are many areas in Bash scripts where formatting is important. Typically it involves spaces and either the presence or absence of a space can be the difference between the command working or not.
+
+### Files with names that have two words
+USE QUOTES - treats the object within quotes a single file/directory.
+
+
+
+
+
+# ---------------------------------------
 # Commands:
 
 ### Print working directory
@@ -162,6 +213,9 @@ Note: Creates a new file if it does not exist yet
 ### Make a directory
 ``` mkdir DIRECTORY_NAME ```
 
+### Check file type
+``` file FILENAME ```
+
 ### Create a new file
 ``` touch FILE_NAME.TXT ```
 
@@ -169,6 +223,10 @@ Note: Creates a new file if it does not exist yet
 To copy multiple files into a directory, use cp with a list of source files as the first arguments, and the destination directory as the last argument.
 Copying to an existing file owerwrites it.
 ``` cp PATH1/FILE1.TXT PATH2/FILE2.TXT DESTINATION_PATH/ ```
+
+Copying directories
+
+``` cp -r DIRECTORY_NAME /DESTINATION/DESTINATION ```
 
 ### Moving (cut+paste)
 ``` mv PATH1/FILE1.TXT PATH2/FILE2.TXT DESTINATION_PATH/ ```
