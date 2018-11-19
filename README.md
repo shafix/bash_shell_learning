@@ -1,6 +1,3 @@
-# bash_shell_learning
-Bash / Shell learning
-
 ## What are bash scripts?
 A Bash script is a plain text file which contains a series of commands. These commands are a mixture of commands we would normally type ouselves on the command line (such as ls or cp for example) and commands we could type on the command line.
 Anything you can run normally on the command line can be put into a script and it will do exactly the same thing.
